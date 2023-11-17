@@ -73,3 +73,15 @@ p {
 .form-wrapper button:hover {
   opacity: 0.8;
 }
+.removeItem {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #da1e26;
+}
+.removeItem:hover {
+  background-color: red;
+}

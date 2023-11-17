@@ -37,28 +37,38 @@ function addMovie() {
   titleList.push(movieTitle)
   youtubeList.push(youtubeLink)
 
-  addMoviesToScreen(movieList, titleList, youtubeList)
+  addMoviesToScreen()
 }
 
 function linkIsValid(link) {
   return movieList.includes(link)
 }
 
-function addMoviesToScreen(img, title, link) {
+// Remover elementos da tela
+function removeItem(element) {
+  const elementValue = element.getAttribute("value")
+
+  const index = titleList.indexOf(elementValue)
+  movieList.splice(index, 1)
+  youtubeList.splice(index, 1)
+  titleList.splice(index, 1)
+  addMoviesToScreen()
+}
+function addMoviesToScreen() {
   const movieListContainer = document.querySelector("#movieList")
   movieListContainer.innerHTML = ""
-  for (let index = 0; index < img.length; index++) {
-    const elementImg = img[index]
-    const elementTitle = title[index]
-    const elementLink = link[index]
+  for (let index = 0; index < movieList.length; index++) {
+    const elementImg = movieList[index]
+    const elementTitle = titleList[index]
+    const elementLink = youtubeList[index]
     // Limpando oque tiver na tela
     movieListContainer.innerHTML += `
         <div class="item">
             <a href="${elementLink}" target="_blank"><img src="${elementImg}"></a>
             <p >${elementTitle}</p>
-            
+            <span value="${elementTitle}" class="removeItem" onclick="removeItem(this)">Remover</span>
         </div>
         `
   }
 }
-addMoviesToScreen(movieList, titleList, youtubeList)
+addMoviesToScreen()
