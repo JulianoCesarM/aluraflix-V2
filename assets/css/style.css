@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: "Roboto Mono", monospace;
   text-align: center;
@@ -37,19 +42,17 @@ body {
 #movieList {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
   gap: 1rem;
+  width: 1050px;
 }
 #movieList img {
-  margin: 10px;
   max-height: 250px;
 }
 
 .form-wrapper {
   margin: 0 0 15px;
-}
-p {
-  padding: 0;
-  margin: 0;
 }
 .form-wrapper input {
   display: block;
@@ -57,7 +60,7 @@ p {
   padding: 10px 15px;
 }
 
-.form-wrapper button {
+button {
   border: 0;
   color: #ffffff;
   background: #da1e26;
@@ -70,7 +73,7 @@ p {
   transition: 0.3s;
 }
 
-.form-wrapper button:hover {
+button:hover {
   opacity: 0.8;
 }
 .removeItem {
@@ -84,4 +87,24 @@ p {
 }
 .removeItem:hover {
   background-color: red;
+}
+.item {
+  width: 190px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.item p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.msgError {
+  width: fit-content;
+  margin: 5px auto;
+  background-color: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid red;
 }
